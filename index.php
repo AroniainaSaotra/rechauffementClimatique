@@ -1,3 +1,8 @@
+<?php
+  include("forms/functions.php");
+  $definition=getRechauffement();
+  $images=getImages();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -49,7 +54,7 @@
       <nav id="navbar" class="navbar">
         <ul>
           <li><a class="nav-link scrollto" href="#about">A propos</a></li>
-          <li><a class="nav-link scrollto" href="#nouveau">Nouveaux</a></li>
+          <li><a class="nav-link scrollto" href="#nouveau">Actualites</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -78,28 +83,24 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>About Us</h2>
+          <h2>A propos</h2>
         </div>
 
         <div class="row content">
           <div class="col-lg-6">
+          <?php for ($i=0; $i < count($definition); $i++) { ?>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-              magna aliqua.
+            <?php echo $definition[0]['descri']; ?>
             </p>
-            <ul>
-              <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat</li>
-              <li><i class="ri-check-double-line"></i> Duis aute irure dolor in reprehenderit in voluptate velit</li>
-              <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat</li>
-            </ul>
+            <?php } ?>
           </div>
+
           <div class="col-lg-6 pt-4 pt-lg-0">
+          <?php for ($i=0; $i < count($definition); $i++) { ?>
             <p>
-              Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-              culpa qui officia deserunt mollit anim id est laborum.
+            <?php echo $definition[1]['descri']; ?>
             </p>
-            <a href="#" class="btn-learn-more">Learn More</a>
+            <?php } ?>
           </div>
         </div>
 
@@ -108,8 +109,14 @@
 
     <section id="nouveau" class="nouveau">
       <div class="section-title">
-        <h2>Nouveaux :</h2>
+        <h2>Actualites</h2>
       </div>
+      <div class="row content">
+          <div class="col-lg-6">
+            <img src="assets/img/<?php echo $images[][]?>">
+          </div>
+      </div>
+
     </section>
 
   </main><!-- End #main -->
